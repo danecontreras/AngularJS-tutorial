@@ -1,0 +1,25 @@
+[{
+	"name": "Yoshi",
+	"belt": "Green",
+	"rate": 25,
+	"available": true,
+	"thumb": "content/img/Yoshi.png"
+}, {
+	"name": "Kage",
+	"belt": "Black",
+	"rate": 100,
+	"available": true,
+	"thumb": "content/img/Kage.png"
+}, {
+	"name": "Ryu",
+	"belt": "Blue",
+	"rate": 50,
+	"available": true,
+	"thumb": "content/img/Ryu.png"
+}, {
+	"name": "John Cena",
+	"belt": "Orange",
+	"rate": 1,
+	"available": false,
+	"thumb": "content/img/John Cena.png"
+}]

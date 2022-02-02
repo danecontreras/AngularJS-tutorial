@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myNinjaApp">
+    <head>
+        <title>AngularJS Tutorial</title>
+        <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+        <!-- Import delle librerie usate -->
+        <script src="app/lib/angular.min.js"></script>
+        <script src="app/lib/angular-route.min.js"></script>
+        <script src="app/lib/angular-animate.min.js"></script>
+        <!-- Import della logica principale dell'app -->
+        <script src="app/app.config.js"></script>
+        <script src="app/services/ninjaService.service.js"></script>
+        <script src="app/controllers/NinjaController.controller.js"></script>
+        <script src="app/controllers/ContactController.controller.js"></script>
+        <script src="app/directives/randomNinja.directive.js"></script>
+    </head>
+
+    <!-- ng-init viene eseguito all'inizio dell'app -->
+    <body>
+        <!-- ng-include permette l'aggiunta di un altro file HTML in quello attuale -->
+        <header ng-include src="'header.html'"></header>
+        <!-- ng-view la view del router -->
+        <main ng-view></main>
+    </body>
+</html>

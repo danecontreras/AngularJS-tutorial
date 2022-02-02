@@ -1,0 +1,33 @@
+<div class="content">
+    <!-- ng-controller accede al controller in app.js 
+        <div ng-controller="NinjaController"></div>
+    -->
+        <button ng-click="order = 'name'">Order by Name</button>
+        <button ng-click="order = 'belt'">Order by Belt</button>
+        <!-- message è una variabile che si trova nel controller -->
+        <p>{{message}}</p>
+
+        <!-- ng-model permette il TWO WAY DATA BINDING (valore del model == valore del view) -->
+        <input type="text" ng-model="search" />
+
+        <!-- ng-repeat per iterare su una lista 
+            "|" si chiama un pipe e serve per permettere le funzioni come orderBy e filter all'interno del loop -->
+        <ul class="ninja-list">
+            <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+                <img ng-src="{{ninja.thumb}}" ng-show="ninja.thumb" style="margin: -12px 10px 0 0; float: left; height: 50px; width: 50px;" />
+                <h3>{{ninja.name}} - {{ninja.rate | currency: '€'}}</h3>
+                <div class="remove" ng-click="removeNinja(ninja)">X</div>
+                <span class="belt" style="background: {{ninja.belt}}">{{ninja.belt}} Belt</span>
+            </li>
+        </ul>
+
+        <!-- ng-submit viene eseguito quando il bottone di tipo submit viene cliccato -->
+        <form ng-submit="addNinja()">
+            <input type="text" placeholder="name" ng-model="newNinja.name" />
+            <input type="text" placeholder="belt" ng-model="newNinja.belt" />
+            <input type="text" placeholder="rate" ng-model="newNinja.rate" />
+            <input type="submit" value="Add new ninja" />
+        </form>
+
+        <a href="" ng-click="removeAll()">Remove all ninjas</a>
+</div>
