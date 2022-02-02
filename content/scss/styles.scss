@@ -1,0 +1,234 @@
+/* 
+    Import di altri file scss/sass
+        @use 'nomeFile';
+    
+    Per accedere ad una variabile di un file importato
+        nomeFile.$nomeVariabile;
+    
+    Dichiarazione variabili
+        $nome: valore;
+
+    Sintassi di funzioni
+        @mixin nomeFunc($nomeVar: tipo) {
+            ...
+        }
+    
+    Chiamata funzione
+        @include nomeFunc;
+
+    Nesting di tag
+
+        a {
+            b { }
+            c { 
+                d { }
+            }
+        }
+
+        in CSS: 
+
+        a b {}
+        a c {}
+        a b c {}
+
+    Esempio per usare la matematica
+        @use "sass:math";
+
+        width: math.div(600px, 960px) * 100%;
+
+*/
+
+/*
+@use 'variables';
+@use 'functions';
+
+dà errore col compilatore se usiamo
+
+    variables.$nomeVar;
+
+*/
+
+$zero: 0;
+$white: #FFF;
+
+body {
+    font-family: Helvetica;
+    margin: $zero;
+}
+
+h1,h2,h3{
+    margin: $zero;
+}
+  
+.belt{
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-left: 5px;
+    color: $white;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#menu-bar{
+    background: crimson;
+    color: $white;
+    padding: 10px;
+    
+    h1{
+        font-size: 24px;
+        font-weight: normal;
+        display: inline-block;
+    }
+
+    ul{
+        float: right;
+        list-style-type: none;
+        padding: $zero;
+        margin: 6px $zero;
+    }
+
+    li{
+        float: right;
+        margin-left: 20px;
+    }
+
+    a{
+        color: $white;
+    }
+}
+
+main{
+    background: #eee;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+.content{
+    padding: 20px;
+    overflow: hidden;
+
+    button, input[type="submit"] {
+        background: $white;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #777;
+        border: $zero;
+        box-shadow: 2px 2px 2px rgba(20,20,20,0.1);
+        font-size: 16px;
+    }
+
+    button:nth-child(2){
+        float: right;
+    }
+
+    ul{
+        padding: $zero;
+        list-style-type: none;
+        margin: 30px $zero;
+    }
+
+    li{
+        padding: 15px $zero;
+        border-top: 1px solid #e2e2e2;
+        color: #444;
+
+        span{
+            float: right;
+        }
+
+        h3{
+            display: inline-block;
+            font-weight: normal;
+            font-size: 22px;
+        }
+    }
+
+    input{
+        width: 90%;
+        padding: 10px 5%;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        margin: 10px $zero;
+    }
+
+    textarea{
+        width: 90%;
+        padding: 10px 5%;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        margin: 10px $zero;
+    }
+
+    input[type="submit"]:last-child{
+        width: 150px;
+        display: block;
+        margin: 15px auto;
+    }
+    
+}
+
+.remove{
+    float: right;
+    padding: 5px;
+    background: $white;
+    width: 18px;
+    text-align: center;
+    border-radius: 20px;
+    color: crimson;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+input[disabled="disabled"]{
+    opacity: 0.4;
+    cursor: not-allowed !important;
+}
+
+
+// ANIMATIONS
+
+main.ng-enter{
+    transition: 0.5s linear all;
+    opacity: $zero;
+}
+
+main.ng-enter.ng-enter-active{
+    opacity: 1;
+}
+
+.ninja-list{
+
+    li.ng-enter{
+        transition: 0.2s linear all;
+        opacity: $zero;
+        transform: translateY(30px);
+    }
+
+    li.ng-enter.ng-enter-active{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    li.ng-leave{
+        transition: 0.3s linear all;
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    li.ng-leave.ng-leave-active{
+        opacity: $zero;
+        transform: translateX(-100%);
+    }
+    
+    li.ng-leave-stagger{
+        transition-delay: 0.2s;
+        transition-duration: $zero;
+    }
+
+}

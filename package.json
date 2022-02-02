@@ -1,0 +1,15 @@
+{
+  "name": "angularjs-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "scss": "node-sass -w content/scss -o content/css"
+  },
+  "author": "danecontreras",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  },
+  "devDependencies": {}
+}
