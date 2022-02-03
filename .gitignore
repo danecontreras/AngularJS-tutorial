@@ -11,6 +11,8 @@ tmp/
 app/**/*.js
 app/**/*.js.map
 
+!app/filters/*.filter.js
+
 # dependencies
 node_modules/
 bower_components/
