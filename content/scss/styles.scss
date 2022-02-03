@@ -147,33 +147,33 @@ input[disabled="disabled"] {
 
 main.ng-enter {
     transition: 0.5s linear all;
-    opacity: $zero;
+    @include show(false);
 }
 
 main.ng-enter.ng-enter-active {
-    opacity: 1;
+    @include show(true);
 }
 
 .ninja-list {
     li.ng-enter {
-        transition: 0.2s linear all;
-        opacity: $zero;
+        @include linearTransition(0.2s);
+        @include show(false);
         transform: translateY(30px);
     }
 
     li.ng-enter.ng-enter-active {
-        opacity: 1;
+        @include show(true);
         transform: translateY(0px);
     }
 
     li.ng-leave {
-        transition: 0.3s linear all;
-        opacity: 1;
+        @include linearTransition(0.3s);
+        @include show(true);
         transform: translateX(0px);
     }
 
     li.ng-leave.ng-leave-active {
-        opacity: $zero;
+        @include show(false);
         transform: translateX(-100%);
     }
 

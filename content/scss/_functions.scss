@@ -1,3 +1,13 @@
-@mixin nomeFunc(){
-    
+//$seconds è una variabile locale per questa funzione
+@mixin linearTransition($seconds) {
+    transition: $seconds linear all;
+}
+
+@mixin show($boolean) {
+    @if $boolean {
+        opacity: 1;
+    } @else {
+        //$zero è una variabile globale che si trova in _variables.scss
+        opacity: $zero;
+    }
 }
