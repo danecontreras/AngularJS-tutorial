@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "scss": "node-sass -w content/scss -o content/css"
+    "prestart": "npm i",
+    "start": "concurrently npm:server:start npm:compile:scss",
+    "server:start": "live-server",
+    "compile:scss": "sass -w content/scss/styles.scss content/css/styles.css"
   },
   "author": "danecontreras",
   "license": "ISC",
-  "dependencies": {
-    "node-sass": "^7.0.1"
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "live-server": "^1.2.1",
+    "sass": "^1.49.7"
+  }
 }

@@ -1,0 +1,6 @@
+{
+  "port": 8181,
+  "open": true,
+  "ignore": "content/scss, .git, node_modules",
+  "file": "index.html"
+}
