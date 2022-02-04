@@ -1,0 +1,27 @@
+#menu-bar {
+  background: crimson;
+  color: $white;
+  padding: 10px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    display: inline-block;
+  }
+
+  ul {
+    float: right;
+    list-style-type: none;
+    padding: $zero;
+    margin: 6px $zero;
+  }
+
+  li {
+    float: right;
+    margin-left: 20px;
+  }
+
+  a {
+    color: $white;
+  }
+}

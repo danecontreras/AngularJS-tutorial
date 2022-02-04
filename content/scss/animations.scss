@@ -1,0 +1,39 @@
+// ANIMATIONS
+
+main.ng-enter {
+  transition: 0.5s linear all;
+  @include show(false);
+}
+
+main.ng-enter.ng-enter-active {
+  @include show(true);
+}
+
+.ninja-list {
+  li.ng-enter {
+    @include linearTransition(0.2s);
+    @include show(false);
+    transform: translateY(30px);
+  }
+
+  li.ng-enter.ng-enter-active {
+    @include show(true);
+    transform: translateY(0px);
+  }
+
+  li.ng-leave {
+    @include linearTransition(0.3s);
+    @include show(true);
+    transform: translateX(0px);
+  }
+
+  li.ng-leave.ng-leave-active {
+    @include show(false);
+    transform: translateX(-100%);
+  }
+
+  li.ng-leave-stagger {
+    transition-delay: 0.2s;
+    transition-duration: $zero;
+  }
+}

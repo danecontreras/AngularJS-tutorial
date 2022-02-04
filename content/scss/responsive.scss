@@ -1,0 +1,13 @@
+//Tablet View
+@media screen and (max-width: 1024px) {
+  #menu-bar {
+    background: rgb(255, 0, 221);
+  }
+}
+
+//Mobile View (Per qualche motivo non lo prende)
+@media screen and (max-width: 560px) {
+  #menu-bar {
+    background: rgb(0, 26, 255);
+  }
+}

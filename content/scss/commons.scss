@@ -1,0 +1,31 @@
+body {
+  font-family: Helvetica;
+  margin: $zero;
+}
+
+h1,
+h2,
+h3 {
+  margin: $zero;
+}
+
+.belt {
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  color: $white;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.remove {
+  float: right;
+  padding: 5px;
+  background: $white;
+  width: 18px;
+  text-align: center;
+  border-radius: 20px;
+  color: crimson;
+  cursor: pointer;
+  margin-left: 10px;
+}
