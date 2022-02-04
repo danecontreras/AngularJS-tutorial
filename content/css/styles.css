@@ -159,4 +159,15 @@ main.ng-enter.ng-enter-active {
   transition-duration: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  #menu-bar {
+    background: #ff00dd;
+  }
+}
+@media screen and (max-width: 560px) {
+  #menu-bar {
+    background: #001aff;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
