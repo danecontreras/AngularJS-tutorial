@@ -8,10 +8,7 @@
 # compiled output
 dist/
 tmp/
-app/**/*.js
 app/**/*.js.map
-
-!app/filters/*.filter.js
 
 # dependencies
 node_modules/
