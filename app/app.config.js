@@ -6,6 +6,7 @@ var myNinjaApp = angular.module("myNinjaApp", [
   "ContactController",
   "randomNinja",
   "testComponent",
+  "ninjaComponent",
 ]);
 
 // Viene eseguito prima che l'app si avvii
