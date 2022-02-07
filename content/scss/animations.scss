@@ -1,4 +1,4 @@
-// ANIMATIONS
+// MAIN ANIMATIONS
 
 main.ng-enter {
   transition: 0.5s linear all;
@@ -8,6 +8,8 @@ main.ng-enter {
 main.ng-enter.ng-enter-active {
   @include show(true);
 }
+
+// LIST ANIMATIONS
 
 .ninja-list {
   li.ng-enter {
@@ -35,5 +37,130 @@ main.ng-enter.ng-enter-active {
   li.ng-leave-stagger {
     transition-delay: 0.2s;
     transition-duration: $zero;
+  }
+}
+
+// ROTATE ANIMATIOn
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// HOMEPAGE BOX ANIMATION
+
+$anime-time: 8s;
+
+$box-size: 300px;
+$clip-distance: 0.05;
+$clip-size: $box-size * (1 + $clip-distance * 2);
+$path-width: 2px;
+
+$main-color: #000000;
+
+%full-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.box {
+  @extend %full-fill;
+  width: $box-size;
+  height: $box-size;
+  margin: auto;
+  margin-top: 100px;
+  color: $main-color;
+  box-shadow: inset 0 0 0 1px rgba($main-color, 0.5);
+
+  &::before,
+  &::after {
+    @extend %full-fill;
+    content: "";
+    z-index: -1;
+    margin: -1 * $clip-distance * 100%;
+    box-shadow: inset 0 0 0 $path-width;
+    animation: clipMe $anime-time linear infinite;
+  }
+
+  &::before {
+    animation-delay: $anime-time * -0.5;
+  }
+
+  h1 {
+    margin-top: 20px;
+    font-size: 40px;
+    cursor: default;
+    &:hover {
+      animation: titleBounce 1s ease 0s 1 normal forwards;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  .ninjaImg {
+    animation: rotate 4s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes clipMe {
+  0%,
+  100% {
+    clip: rect(0px, $clip-size, $path-width, 0px);
+  }
+  25% {
+    clip: rect(0px, $path-width, $clip-size, 0px);
+  }
+  50% {
+    clip: rect($clip-size - $path-width, $clip-size, $clip-size, 0px);
+  }
+  75% {
+    clip: rect(0px, $clip-size, $clip-size, $clip-size - $path-width);
+  }
+}
+
+@keyframes titleBounce {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
   }
 }
