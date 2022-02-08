@@ -3,5 +3,5 @@ angular.module("ninjaComponent", []).component("ninjaComponent", {
     ninja: "=",
   },
   templateUrl: "app/components/ninja/ninja.template.html",
-  controller: "NinjaController",
+  controller: "NinjaController as ninjaCtrl",
 });

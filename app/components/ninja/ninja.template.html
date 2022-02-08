@@ -2,12 +2,12 @@
 "|" si chiama un pipe e serve per permettere le funzioni come orderBy e filter all'interno del loop 
 -->
 <img
-  ng-src="{{$ctrl.ninja.thumb}}"
-  ng-show="$ctrl.ninja.thumb"
+  ng-src="{{ninjaCtrl.ninja.thumb}}"
+  ng-show="ninjaCtrl.ninja.thumb"
   style="margin: -12px 10px 0 0; float: left; height: 50px; width: 50px"
 />
-<h3>{{$ctrl.ninja.name}} - {{$ctrl.ninja.rate | currency: '€'}}</h3>
-<div class="remove" ng-click="removeNinja($ctrl.ninja)">X</div>
-<span class="belt" style="background: {{$ctrl.ninja.belt}}"
-  >{{$ctrl.ninja.belt}} Belt</span
+<h3>{{ninjaCtrl.ninja.name}} - {{ninjaCtrl.ninja.rate | currency: '€'}}</h3>
+<div class="remove" ng-click="ninjaCtrl.removeNinja(ninjaCtrl.ninja)">X</div>
+<span class="belt" style="background: {{ninjaCtrl.ninja.belt}}"
+  >{{ninjaCtrl.ninja.belt}} Belt</span
 >

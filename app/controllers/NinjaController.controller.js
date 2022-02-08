@@ -8,24 +8,32 @@ angular
     "ninjaService",
     "reverseFilter",
     function ($scope, ninjaService, reverseFilter) {
-      $scope.message = "Type to filter search: ";
-      $scope.reversedMessage = reverseFilter("Check out our random ninja!");
+      var self = this;
+      self.message = "Type to filter search: ";
+      self.ninjas = ninjaService.ninjas;
 
-      ninjaService.getNinjas().then(function (data) {
-        $scope.ninjas = data;
+      $scope.$watch(watchSource, function (current, previous) {
+        self.ninjas = current;
+        console.log({ previous, current });
       });
 
-      $scope.removeNinja = function (ninja) {
-        ninjaService.removeNinja($scope.ninjas, ninja);
+      function watchSource() {
+        return ninjaService.ninjas;
+      }
+
+      self.reversedMessage = reverseFilter("Check out our random ninja!");
+
+      self.removeNinja = function (ninja) {
+        ninjaService.removeNinja(ninja);
       };
 
-      $scope.addNinja = function () {
-        ninjaService.addNinja($scope.ninjas, $scope.newNinja);
-        $scope.newNinja = ninjaService.clearNewNinja();
+      self.addNinja = function () {
+        ninjaService.addNinja(self.newNinja);
+        self.newNinja = ninjaService.clearNewNinja();
       };
 
-      $scope.removeAll = function () {
-        $scope.ninjas = ninjaService.removeAll();
+      self.removeAll = function () {
+        ninjaService.removeAll();
       };
     },
   ]);

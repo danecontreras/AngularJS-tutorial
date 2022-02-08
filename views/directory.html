@@ -5,25 +5,25 @@
   <button ng-click="order = 'name'">Order by Name</button>
   <button ng-click="order = 'belt'">Order by Belt</button>
   <!-- message è una variabile che si trova nel controller -->
-  <p>{{message}}</p>
+  <p>{{ninjaCtrl.message}}</p>
 
   <!-- ng-model permette il TWO WAY DATA BINDING (valore del model == valore del view) -->
   <input type="text" ng-model="search" />
   <ul class="ninja-list">
     <li
-      ng-repeat="ninja in ninjas | orderBy: order | filter: search"
+      ng-repeat="ninja in ninjaCtrl.ninjas | orderBy: order | filter: search"
       ng-show="ninja.available"
     >
       <ninja-component ninja="ninja"></ninja-component>
     </li>
   </ul>
   <!-- ng-submit viene eseguito quando il bottone di tipo submit viene cliccato -->
-  <form ng-submit="addNinja()">
-    <input type="text" placeholder="name" ng-model="newNinja.name" />
-    <input type="text" placeholder="belt" ng-model="newNinja.belt" />
-    <input type="text" placeholder="rate" ng-model="newNinja.rate" />
+  <form ng-submit="ninjaCtrl.addNinja()">
+    <input type="text" placeholder="name" ng-model="ninjaCtrl.newNinja.name" />
+    <input type="text" placeholder="belt" ng-model="ninjaCtrl.newNinja.belt" />
+    <input type="text" placeholder="rate" ng-model="ninjaCtrl.newNinja.rate" />
     <input type="submit" value="Add new ninja" />
   </form>
 
-  <a href="" ng-click="removeAll()">Remove all ninjas</a>
+  <a href="" ng-click="ninjaCtrl.removeAll()">Remove all ninjas</a>
 </div>

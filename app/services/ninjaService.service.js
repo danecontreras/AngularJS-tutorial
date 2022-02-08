@@ -1,41 +1,51 @@
-angular.module('ninjaService', [])
-.service('ninjaService', ['$http', function($http){
-    
-    this.getNinjas = function(){
-        var url = 'data/ninjas.json';
+angular.module("ninjaService", []).factory("ninjaService", [
+  "$http",
+  function ($http) {
+    var ninjaService = {};
 
-        return $http.get(url)
-            .then(function(response){
-                return response.data;
-        });
+    ninjaService.ninjas = [];
+
+    ninjaService.fetchNinjas = function () {
+      var url = "data/ninjas.json";
+      return $http.get(url).then(function (response) {
+        ninjaService.ninjas = response.data;
+      });
     };
 
-    this.removeNinja = function(ninjas, ninja){
-        return ninjas.splice(ninjas.indexOf(ninja), 1);
+    ninjaService.removeNinja = function (ninja) {
+      ninjaService.ninjas.splice(ninjaService.ninjas.indexOf(ninja), 1);
+      return ninjaService.ninjas;
     };
 
-    this.addNinja = function(ninjas, newNinja){
-        return ninjas.push({
-            name: newNinja.name,
-            belt: newNinja.belt,
-            rate: parseInt(newNinja.rate),
-            available: true
-        });
+    ninjaService.addNinja = function (newNinja) {
+      ninjaService.ninjas.push({
+        name: newNinja.name,
+        belt: newNinja.belt,
+        rate: parseInt(newNinja.rate),
+        available: true,
+      });
+
+      return ninjaService.ninjas;
     };
 
-    this.clearNewNinja = function(){
-        return {
-            name: "",
-            belt:  "",
-            rate: ""
-        };
+    ninjaService.clearNewNinja = function () {
+      return {
+        name: "",
+        belt: "",
+        rate: "",
+      };
     };
 
-    this.removeAll = function(){
-        return [];
+    ninjaService.removeAll = function () {
+      ninjaService.ninjas = [];
+      return ninjaService.ninjas;
     };
 
-}]);
+    ninjaService.fetchNinjas();
+
+    return ninjaService;
+  },
+]);
 
 /* 
     Service e Factory:

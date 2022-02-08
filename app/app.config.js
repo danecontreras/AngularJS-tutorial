@@ -30,6 +30,7 @@ myNinjaApp.config([
       .when("/directory", {
         templateUrl: "views/directory.html",
         controller: "NinjaController",
+        controllerAs: "ninjaCtrl",
       })
       .when("/test", {
         /* Quando si tratta di chiamare un component con l'ngRouting bisogna usare il tag del template e non l'URL del file,
