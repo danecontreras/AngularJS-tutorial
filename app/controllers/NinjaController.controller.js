@@ -11,10 +11,10 @@ angular
       var self = this;
       self.message = "Type to filter search: ";
       self.ninjas = ninjaService.ninjas;
+      self.heartColor = { color: "default" };
 
       $scope.$watch(watchSource, function (current, previous) {
         self.ninjas = current;
-        console.log({ previous, current });
       });
 
       function watchSource() {
@@ -34,6 +34,14 @@ angular
 
       self.removeAll = function () {
         ninjaService.removeAll();
+      };
+
+      self.addFavorites = function () {
+        if (self.heartColor.color == "default") {
+          self.heartColor = { color: "red" };
+        } else {
+          self.heartColor = { color: "default" };
+        }
       };
     },
   ]);

@@ -7,6 +7,11 @@
   style="margin: -12px 10px 0 0; float: left; height: 50px; width: 50px"
 />
 <h3>{{ninjaCtrl.ninja.name}} - {{ninjaCtrl.ninja.rate | currency: '€'}}</h3>
+<button
+  ng-click="ninjaCtrl.addFavorites()"
+  class="fa fa-heart"
+  ng-style="ninjaCtrl.heartColor"
+></button>
 <div class="remove" ng-click="ninjaCtrl.removeNinja(ninjaCtrl.ninja)">X</div>
 <span class="belt" style="background: {{ninjaCtrl.ninja.belt}}"
   >{{ninjaCtrl.ninja.belt}} Belt</span

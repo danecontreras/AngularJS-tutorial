@@ -1,25 +1,34 @@
-[{
-	"name": "Yoshi",
-	"belt": "Green",
-	"rate": 25,
-	"available": true,
-	"thumb": "content/img/Yoshi.png"
-}, {
-	"name": "Kage",
-	"belt": "Black",
-	"rate": 100,
-	"available": true,
-	"thumb": "content/img/Kage.png"
-}, {
-	"name": "Ryu",
-	"belt": "Blue",
-	"rate": 50,
-	"available": true,
-	"thumb": "content/img/Ryu.png"
-}, {
-	"name": "John Cena",
-	"belt": "Orange",
-	"rate": 1,
-	"available": false,
-	"thumb": "content/img/John Cena.png"
-}]
+[
+	{
+		"id": 1,
+		"name": "Yoshi",
+		"belt": "Green",
+		"rate": 25,
+		"available": true,
+		"thumb": "content/img/Yoshi.png"
+	},
+	{
+		"id": 2,
+		"name": "Kage",
+		"belt": "Black",
+		"rate": 100,
+		"available": true,
+		"thumb": "content/img/Kage.png"
+	},
+	{
+		"id": 3,
+		"name": "Ryu",
+		"belt": "Blue",
+		"rate": 50,
+		"available": true,
+		"thumb": "content/img/Ryu.png"
+	},
+	{
+		"id": 4,
+		"name": "John Cena",
+		"belt": "Orange",
+		"rate": 1,
+		"available": false,
+		"thumb": "content/img/John Cena.png"
+	}
+]

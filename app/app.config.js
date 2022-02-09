@@ -18,6 +18,7 @@ myNinjaApp.config([
       .when("/home", {
         templateUrl: "views/home.html",
         controller: "NinjaController",
+        controllerAs: "ninjaCtrl",
       })
       .when("/contact", {
         templateUrl: "views/contact.html",
