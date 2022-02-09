@@ -4,6 +4,7 @@ angular.module("ninjaService", []).factory("ninjaService", [
     var ninjaService = {};
 
     ninjaService.ninjas = [];
+    ninjaService.idList = [];
 
     ninjaService.fetchNinjas = function () {
       var url = "data/ninjas.json";
@@ -39,6 +40,30 @@ angular.module("ninjaService", []).factory("ninjaService", [
     ninjaService.removeAll = function () {
       ninjaService.ninjas = [];
       return ninjaService.ninjas;
+    };
+
+    // trasforma la stringa di numeri nel localStorage in un array di numeri
+    ninjaService.getFavorites = function () {
+      if (window.localStorage.getItem("idList") != null) {
+        ninjaService.idList = window.localStorage
+          .getItem("idList")
+          .split(",")
+          .map(Number);
+      }
+    };
+
+    ninjaService.addFavorites = function (id) {
+      ninjaService.idList.push(id);
+      window.localStorage.setItem("idList", ninjaService.idList);
+    };
+
+    ninjaService.removeFavorites = function (id) {
+      ninjaService.idList.splice(ninjaService.idList.indexOf(id), 1);
+      window.localStorage.setItem("idList", ninjaService.idList);
+      // se idList nel localStorage è vuota elimina la chiave
+      if (window.localStorage.getItem("idList") == "") {
+        window.localStorage.removeItem("idList");
+      }
     };
 
     ninjaService.fetchNinjas();

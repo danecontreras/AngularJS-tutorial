@@ -36,11 +36,26 @@ angular
         ninjaService.removeAll();
       };
 
-      self.addFavorites = function () {
+      // prende la lista dei preferiti dentro il localstorage
+      self.getFavorites = function (id) {
+        ninjaService.getFavorites();
+        // se l'id è dentro la lista allora il colore del cuore sarà rosso
+        if (ninjaService.idList.includes(id)) {
+          self.heartColor = { color: "red" };
+        }
+      };
+
+      // funzione per gestire il bottone dei preferiti
+      self.handleFavorites = function (id) {
+        // se è di colore grigio allora col click diventa rosso e lo aggiunge alla lista dei preferiti
         if (self.heartColor.color == "default") {
           self.heartColor = { color: "red" };
-        } else {
+          ninjaService.addFavorites(id);
+        }
+        // se invece è di colore rosso allora col click diventa grigio e lo toglie dalla lista dei preferiti
+        else {
           self.heartColor = { color: "default" };
+          ninjaService.removeFavorites(id);
         }
       };
     },

@@ -8,7 +8,8 @@
 />
 <h3>{{ninjaCtrl.ninja.name}} - {{ninjaCtrl.ninja.rate | currency: '€'}}</h3>
 <button
-  ng-click="ninjaCtrl.addFavorites()"
+  ng-init="ninjaCtrl.getFavorites(ninjaCtrl.ninja.id)"
+  ng-click="ninjaCtrl.handleFavorites(ninjaCtrl.ninja.id)"
   class="fa fa-heart"
   ng-style="ninjaCtrl.heartColor"
 ></button>
